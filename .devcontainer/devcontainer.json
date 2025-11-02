@@ -1,0 +1,25 @@
+{
+  "name": "nginx-acme",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": "..",
+    "args": {
+      "RUST_VERSION": "1.91.0",
+      "NGINX_VERSION": "1.29.3",
+      "USERNAME": "vscode"
+    }
+  },
+  "remoteUser": "vscode",
+  "containerEnv": {
+    "CARGO_TERM_COLOR": "always",
+    "RUST_BACKTRACE": "1"
+  },
+  "postCreateCommand": "cargo --version && rustc --version",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "rust-lang.rust-analyzer"
+      ]
+    }
+  }
+}
